@@ -62,7 +62,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR/'templates',
-            BASE_DIR/'inventory/templates/inventory',
+            BASE_DIR/'inventory/templates/inventory/product',
+            BASE_DIR/'inventory/templates/inventory/category',
+            BASE_DIR/'inventory/templates/inventory/stock_movement',
+            BASE_DIR/'inventory/templates/inventory/suplier',
           
             ],
         'APP_DIRS': True,

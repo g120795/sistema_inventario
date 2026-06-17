@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for producto in product %}
+        <li>
+            <div>
+            nombre: {{producto.nombre}}  
+            modelo: {{producto.modelo}}  
+            precio: S/{{producto.precio}}    
+            </div>
+            <a href="{% url 'update_product' producto.id %}">
+                Editar
+            </a>
+
+            <a href="{% url 'delete_product' producto.id %}">
+                Eliminar
+            </a>
+        </li>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

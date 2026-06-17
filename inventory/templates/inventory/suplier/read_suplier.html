@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <li>
+        {% for proveedor in suplier %}
+            <div>
+               nombre: {{proveedor.nombre}}
+               documento: {{proveedor.documento}}
+               nombre_contacto: {{proveedor.nombre_contacto}}
+               telefono: {{proveedor.telefono}}
+               correo: {{proveedor.correo}}
+               pagina_pedidos: {{proveedor.pagina_pedidos}}
+
+            </div>
+            <a href="{% url 'update_suplier' proveedor.id %}">
+                Editar proveedor
+            </a>
+
+            <a href="{% url 'delete_suplier' proveedor.id %}">
+                Eliminar proveedor
+            </a>
+            
+
+        {% endfor %}
+    </li>
+{% endblock %}
