@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <li>
+    {% for product in producto  %}
+    <div class="producto-card">
+        <p><strong>Nombre:</strong> {{ product.nombre }}</p>
+        <p><strong>Precio:</strong> {{ product.precio }}</p>
+        <p><strong>Categoría:</strong> {{ product.categoria }}</p>
+        <br>
+    </div>
+    {% endfor %}
+    </li>
+    
+
+{% endblock %}

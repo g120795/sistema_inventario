@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <li>
+        {% for stock in stock_movement %}
+            <div>
+                cantidad: {{stock.cantidad}}
+                tipo: {{stock.tipo}}
+                fecha: {{stock.fecha}}
+                proveedor: {{stock.proveedor}}
+                producto: {{stock.producto}}
+
+            </div>
+        {% endfor %}
+    </li>
+{% endblock %}

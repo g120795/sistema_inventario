@@ -1,8 +1,10 @@
 from django import forms
-from .models import Product, Suplier, Category
+from .models import Product, Suplier, Category, StockMovement
 from django.utils import timezone
 from datetime import date
 
+
+#modelo Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -16,8 +18,11 @@ class ProductForm(forms.ModelForm):
                     'stock_actual',
                     'stock_minimo',
                     'categoria',
+                    'proveedores'
+                   
                     
                 ]
+
     def clean_fecha_registro(self):
         fecha = self.cleaned_data.get('fecha_registro')
         if not fecha:
@@ -25,6 +30,7 @@ class ProductForm(forms.ModelForm):
         return fecha #.
 
 
+#modelo Suplier
 class SuplierForm(forms.ModelForm):
     class Meta:
         model = Suplier
@@ -37,11 +43,30 @@ class SuplierForm(forms.ModelForm):
 
             ] #..
 
-
+# modelo Category
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields = ['nombre']
+        fields = ['nombre']#...
 
+
+#modelo StockMovement
+class StockMovementForm(forms.ModelForm):
+    class Meta:
+        model = StockMovement
+        fields = [
+            'cantidad', 
+            'tipo', 
+            'fecha', 
+            'proveedor', 
+            'producto'
+            ]
+
+        
+    def clean_fecha(self):
+        fecha = self.cleaned_data.get('fecha')
+        if not fecha:
+            return timezone.now().date()
+        return fecha
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .form import ProductForm, SuplierForm, CategoryForm
-from .models import Product, Suplier, Category
+from .form import ProductForm, SuplierForm, CategoryForm, StockMovementForm
+from .models import Product, Suplier, Category, StockMovement
 
 
 # vista producto
@@ -18,7 +18,7 @@ class CRUDProduct:
                 print("DATOS DEL FORMULARIO VALIDOS")
                 form.save()
                 print("datos guardados en la db")
-                return redirect('list_inventory')
+                return redirect('read_inventory')
             else:
                 print("no valido")
         else:
@@ -99,7 +99,7 @@ class CRUDSuplier:
         return render(request,'delete_suplier.html', {'suplier':suplier}) #..
 
 
-
+#clase category
 class CRUDCategory:
     def create_category(self, request):
         if request.method == 'POST':
@@ -131,7 +131,57 @@ class CRUDCategory:
         if request.method == 'POST':
             category.delete()
             return redirect('read_category')
-        return render(request,'delete_category.html', {'category':category})
+        return render(request,'delete_category.html', {'category':category})#...
+    
+
+    def filter_for_category(self, request, category_id):
+        producto = Product.objects.filter(categoria_id=category_id)
+        return render(request, 'filter_for_category.html', {'producto':producto} )
+
+
+
+#clase stock_movement
+class CRUDStockMovement:
+    alerta_stock_minimo = False
+
+
+    def update_product(self,request):
+        nombres = ['cantidad', 'tipo', 'proveedor', 'producto']
+        producto = {nombre:valor for nombre, valor in request.POST.items() if nombre in nombres}
+        print(producto)
+        product = Product.objects.get(id=producto['producto'])
+        print(product.stock_actual)
+        print(product.stock_minimo)
+        if producto['tipo'] == 'entrada':
+            product.stock_actual += int(producto['cantidad'])
+
+        elif producto['tipo'] == 'salida':
+            product.stock_actual -=  int(producto['cantidad'])
+        
+        if product.stock_actual <= product.stock_minimo:
+            self.alerta_stock_minimo = True
+        return product
+
+
+    def create_stock_movement(self, request):
+        self.alerta_stock_minimo = False
+        if request.method == 'POST':
+            form = StockMovementForm(request.POST)
+            if form.is_valid():
+                form.save()
+                self.update_product(request).save()
+                if self.alerta_stock_minimo == True:
+                    return redirect('read_inventory')
+                return redirect('read_stock_movement')
+        else:
+            form = StockMovementForm()
+        print(form)        
+        return render(request, 'create_stock_movement.html', {'form':form})
+           
+
+    def read_stock_movement(self, request):
+        stock_movement = StockMovement.objects.all()
+        return render(request, 'read_stock_movement.html', {'stock_movement':stock_movement})
 
 
 

@@ -5,7 +5,10 @@
             <div>
             nombre: {{producto.nombre}}  
             modelo: {{producto.modelo}}  
-            precio: S/{{producto.precio}}    
+            precio: S/{{producto.precio}}   
+            {% if producto.stock_minimo >= producto.stock_actual %}
+                alerta de stock minimo: {{producto.stock_actual}}
+            {% endif %}
             </div>
             <a href="{% url 'update_product' producto.id %}">
                 Editar

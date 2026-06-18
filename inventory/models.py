@@ -46,15 +46,9 @@ class Product(models.Model):
     def __str__(self):
         product = ( 
             f'{self.nombre}'  
-            f'{self.modelo}'
-            f'{self.serie}'
-            f'{self.color}' 
-            f'{self.precio}' 
-            f'{self.fecha_vencimiento}'
-            f'{self.stock_actual}' 
-            f'{self.stock_minimo}' 
-            f'{self.categoria}'
+           
         )
+        return product
 
 
 class StockMovement(models.Model):
@@ -64,7 +58,7 @@ class StockMovement(models.Model):
     ]
     cantidad = models.IntegerField()
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
-    fecha = models.DateField(auto_now=True)
+    fecha = models.DateField(blank=True)
     proveedor = models.ForeignKey(Suplier, null=True, blank=True, on_delete=models.SET_NULL)
     producto = models.ForeignKey(Product, on_delete=models.CASCADE)
 
