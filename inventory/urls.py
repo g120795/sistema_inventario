@@ -28,6 +28,7 @@ urlpatterns = [
     path('<int:category_id>/update_category/', views_category.update_category, name='update_category'),
     path('<int:category_id>/delete_category/', views_category.delete_category, name='delete_category'),
     path('<int:category_id>/filter_for_category/', views_category.filter_for_category, name='filter_for_category'),
+    
     #urls stock_movement
     path('create_stock_movement/', views_stock_movement.create_stock_movement, name='create_stock_movement'),
     path('read_stock_movement/', views_stock_movement.read_stock_movement, name='read_stock_movement')

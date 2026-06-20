@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<ul>
+    <li><a href="{% url 'list_inventory' %}">lista inventario</li>
+    <br>
+    <li><a href="{% url 'create_product' %}">crear producto</li>
+    <br>    
+    <li><a href="{% url 'read_inventory' %}">lista productos</li>
+    <br>    
+    <li><a href="{% url 'create_suplier' %}">crear proveedor</li>
+    <br>
+    <li><a href="{% url 'read_suplier' %}">lista proveedores</li>
+    <br>
+    <li><a href="{% url 'create_category' %}">crear categoria</li>
+    <br>
+    <li><a href="{% url 'read_category' %}">leer categoria</li>
+    <br>
+    <li><a href="{% url 'create_stock_movement' %}">compra o venta</li>
+    <br>
+    <li><a href="{% url 'read_stock_movement' %}">leer historial de compra venta</li>
+    <br>
+</ul>
+
+{% endblock %}
