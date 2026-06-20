@@ -10,7 +10,7 @@ class Category(models.Model):
         category =   (
                     f'{self.nombre}'  
         )
-        return category
+        return category #.
 
 
 
@@ -28,7 +28,7 @@ class Suplier(models.Model):
                     f'{self.nombre}' 
                   
         )
-        return suplier
+        return suplier #..
         
 class Product(models.Model):
     nombre = models.CharField(max_length=100)
@@ -41,14 +41,14 @@ class Product(models.Model):
     stock_actual = models.PositiveIntegerField()
     stock_minimo = models.PositiveIntegerField()
     categoria = models.ForeignKey(Category, on_delete=models.CASCADE) # EN ESTE CASO SI ELIMINO UNA CATEGORIA, TODOS LOS PRODUCTOS ASOCIADAS A ESA CATEGORIA TAMBIEN SE ELIMINARAN
-    proveedores = models.ManyToManyField(Suplier, blank=True)
+    proveedores = models.ManyToManyField(Suplier, blank=True, through='ProductSuplier')
 
     def __str__(self):
         product = ( 
             f'{self.nombre}'  
            
         )
-        return product
+        return product #...
 
 
 class StockMovement(models.Model):
@@ -70,7 +70,13 @@ class StockMovement(models.Model):
                     f'{self.proveedor}' 
                     f'{self.producto}' 
         )
-        return stock_movement
+        return stock_movement #....
+
+
+class ProductSuplier(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    suplier = models.ForeignKey(Suplier, on_delete=models.CASCADE)
+
 
 
 

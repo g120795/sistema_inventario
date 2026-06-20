@@ -20,6 +20,7 @@ urlpatterns = [
     path('read_suplier/', views_suplier.read_suplier, name='read_suplier'),
     path('<int:suplier_id>/update_suplier/',views_suplier.update_suplier, name='update_suplier'),
     path('<int:suplier_id>/delete_suplier/', views_suplier.delete_suplier, name='delete_suplier'),
+    path('<int:proveedor_id>/filter_for_suplier/', views_suplier.filter_for_suplier,name='filter_for_suplier'),
 
     #urls category
     path('create_category/', views_category.create_category, name='create_category'),

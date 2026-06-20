@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <li>
+        {% for producto in productos %}
+            <p>nombre:{{producto.nombre}}</p>
+            <p>modelo:{{producto.modelo}}</p>
+            <p>stock_actual:{{producto.stock_actual}}</p>
+            {% if producto.stock_actual <= producto.stock_minimo %}
+                stock_minimo: {{producto.stock_minimo}}   "ALERTA DE STOCK MINIMO"
+            {% endif %}
+            <br>
+        {% endfor %}
+    </li>
+
+{% endblock %}

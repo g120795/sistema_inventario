@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .form import ProductForm, SuplierForm, CategoryForm, StockMovementForm
-from .models import Product, Suplier, Category, StockMovement
+from .models import Product, Suplier, Category, StockMovement, ProductSuplier
 
 
 # vista producto
@@ -97,6 +97,12 @@ class CRUDSuplier:
             suplier.delete()
             return redirect('read_suplier')
         return render(request,'delete_suplier.html', {'suplier':suplier}) #..
+
+    def filter_for_suplier(self, request, proveedor_id):
+        print(proveedor_id)
+        productos = Product.objects.filter(productsuplier__suplier_id=proveedor_id)
+        print(productos)
+        return render(request, 'filter_for_suplier.html', {'productos':productos})
 
 
 #clase category
