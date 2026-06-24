@@ -8,7 +8,7 @@ views_stock_movement = CRUDStockMovement()
 urlpatterns = [ 
 
     #urls product
-    path('inventory/', views_product.list_inventory, name='list_inventory'),
+   
     path('create_product/', views_product.create_product, name='create_product'),
     path('read_inventory/', views_product.read_inventory, name='read_inventory'),
     path('<int:producto_id>/edit_product/', views_product.update_product, name='update_product'),

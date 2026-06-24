@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}product{% endblock %}
+
+{% block content %}
+<h1>Product</h1>
+    <ul>
+        <li><a href="{% url 'create_product' %}">crear producto</li>
+        <br>    
+        <li><a href="{% url 'read_inventory' %}">lista productos</li>
+        <br>    
+    </ul>
+{% endblock %}

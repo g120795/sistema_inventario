@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <li>
+    <ul>
         {% for category in categorys %}
-        <div>
-            nombre: {{category.nombre}}
-        </div>
+            
+            <div>
+                <li>nombre: {{category.nombre}} <br>
 
-        <a href="{% url 'update_category' category.id %}">
-            Editar
-        </a>
+                    <a href="{% url 'update_category' category.id %}">
+                        Editar
+                    </a>
 
-        <a href="{% url 'delete_category' category.id %}">
-            Eliminar
-        </a>
+                    <a href="{% url 'delete_category' category.id %}">
+                        Eliminar
+                    </a>
+                    <br>
+                    <br>
+                </li>
+            </div>
         {% endfor %}
-    </li>
+    </ul>
 
 {% endblock %}

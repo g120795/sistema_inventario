@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}category{% endblock %}
+
+{% block content %}
+<h1>Category</h1>
+<ul>
+     <li><a href="{% url 'create_category' %}">crear categoria</li>
+    <br>
+    <li><a href="{% url 'read_category' %}">leer categoria</li>
+</ul>
+
+{% endblock %}

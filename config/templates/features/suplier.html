@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}suplier{% endblock %}
+
+{% block content %}
+    <h1>Suplier</h1>
+        <ul>
+            <li><a href="{% url 'create_suplier' %}">crear proveedor</li>
+            <br>
+            <li><a href="{% url 'read_suplier' %}">lista proveedores</li>
+            <br>
+        </ul>
+
+{% endblock %}

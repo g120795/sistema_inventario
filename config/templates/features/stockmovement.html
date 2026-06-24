@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}stockmovement{% endblock %}
+
+{% block content %}
+    <h1>StockMovement</h1>
+        <ul>
+            <br>
+            <li><a href="{% url 'create_stock_movement' %}">compra o venta</li>
+            <br>
+            <li><a href="{% url 'read_stock_movement' %}">leer historial de compra venta</li>
+            <br>
+        </ul>
+
+
+{% endblock %}

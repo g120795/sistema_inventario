@@ -3,6 +3,31 @@ from django.shortcuts import render, redirect, get_object_or_404
 def create_home(request):
     return render(request, 'home.html')
 
+def create_contact(request):
+    return render(request, 'contact.html')
+
+def features(request):
+    return render(request, 'features.html')
+
+###
+
+
+def category(request):
+    return render(request, 'category.html')
+
+def product(request):
+    return render(request, 'product.html')
+
+def stockmovement(request):
+    return render(request, 'stockmovement.html')
+
+def suplier(request):
+    return render(request, 'suplier.html')
+
+
+
+
+
 
 
 """<li><a href="{% url 'update_product' product_id%}">actualizar producto</li>

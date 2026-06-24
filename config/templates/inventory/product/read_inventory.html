@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% for producto in product %}
-        <li>
+    <ul>
+        {% for producto in product %}
             <div>
-            nombre: {{producto.nombre}}  
-            modelo: {{producto.modelo}}  
-            precio: S/{{producto.precio}}   
-            {% if producto.stock_minimo >= producto.stock_actual %}
-                alerta de stock minimo: {{producto.stock_actual}}
-            {% endif %}
-            </div>
-            <a href="{% url 'update_product' producto.id %}">
-                Editar
-            </a>
+                <li>
+                    nombre: {{producto.nombre}}<br>
+                    modelo: {{producto.modelo}}<br>  
+                    precio: S/{{producto.precio}}<br>   
+                    {% if producto.stock_minimo >= producto.stock_actual %}
+                    alerta de stock minimo: {{producto.stock_actual}}<br>
+                    {% endif %}
+                    <a href="{% url 'update_product' producto.id %}">
+                        Editar
+                    </a>
 
-            <a href="{% url 'delete_product' producto.id %}">
-                Eliminar
-            </a>
-        </li>
-    {% endfor %}
+                    <a href="{% url 'delete_product' producto.id %}">
+                        Eliminar
+                    </a>
+                    <br>
+                    <br>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 

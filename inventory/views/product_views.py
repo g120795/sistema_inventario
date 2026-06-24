@@ -3,9 +3,7 @@ from ..models import Product
 from ..form import ProductForm
 # vista producto
 class CRUDProduct:
-    def list_inventory(self,request):
-        lista_inventario = 'lista_inventario'
-        return render(request, 'inventory.html', {'lista_inventario':lista_inventario})
+    
     #crear producto
     def create_product(self,request):
         if request.method == 'POST':

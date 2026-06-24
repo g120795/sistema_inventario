@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <li>
+    <ul>
         {% for proveedor in suplier %}
             <div>
-                nombre: {{proveedor.nombre}}
-                documento: {{proveedor.documento}}
-                nombre_contacto: {{proveedor.nombre_contacto}}
-                telefono: {{proveedor.telefono}}
-                correo: {{proveedor.correo}}
-                pagina_pedidos: {{proveedor.pagina_pedidos}}
+                <li>
+                    nombre: {{proveedor.nombre}}<br>
+                    documento: {{proveedor.documento}}<br>
+                    nombre_contacto: {{proveedor.nombre_contacto}}<br>
+                    telefono: {{proveedor.telefono}}<br>
+                    correo: {{proveedor.correo}}<br>
+                    pagina_pedidos: {{proveedor.pagina_pedidos}}<br>
+                </li>
             </div>
             <a href="{% url 'update_suplier' proveedor.id %}">
                 Editar proveedor
@@ -22,5 +24,5 @@
             <br>
 
         {% endfor %}
-    </li>
+    </ul>
 {% endblock %}
