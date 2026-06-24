@@ -3,15 +3,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %} mi app {%endblock %}</title>
 </head>
-<body>
-    <main>
-        <div><a href="{% url 'home' %}">Home</a> <a href="{% url 'features' %}">Features</a>  <a href="{% url 'contact' %}">Contact</a></div>
+<body class="bg-sky-700">
+    <nav class="bg-sky-500 text-white p-4">
+        <div class="flex gap-6">
+            <a href="{% url 'home' %}" class="hover:text-red-600 font-bold">Home</a> 
+            <a href="{% url 'features' %}" class="hover:text-red-600 font-bold">Features</a>  
+            <a href="{% url 'contact' %}" class="hover:text-red-600 font-bold"> Contact</a>
+        </div>
         <br>
-        {% block content %} {% endblock %}
+    </nav>
+    <main>
+                {% block content %} {% endblock %}
     </main>
     
     <footer class="bg-gray-800 text-white p-4 mt-8 text-center">
-  
+        <p>Sistema Inventario-2026</p>
     </footer>
 </body>
 

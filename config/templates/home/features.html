@@ -3,16 +3,34 @@
 {% block title %}features{%endblock%}
 {% block content %}
 <br>
-<h1>Features</h1>
-    <li><a href="{% url 'category' %}">Category</a></li>
-    <li><a href="{% url 'product' %}">Product</a></li>
-    <li><a href="{% url 'stockmovement' %}">StockMovement</a></li>
-    <li><a href="{% url 'suplier' %}">Suplier</a></li>
-<ul>
-    
-    
-  
-   
-</ul>
+<h1 class="text-3x1 fon bold mb-6 font-bold">Features</h1>
+    <ul class="space-y-3">
+        <div class="text-blue-300">
+            <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                <a href="{% url 'category' %}" class='block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold'>
+                    Category
+                </a>
+            </li>
+            <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                <a href="{% url 'product' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 hover:text_orange-300 font-bold">
+                    <p>Product</p>
+                </a>
+            </li>
+            <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                <a href="{% url 'stockmovement' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold">
+                    StockMovement
+                </a>
+            </li>
+            <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                <a href="{% url 'suplier' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold">
+                    Suplier
+                </a>
+            </li>
+            <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                <a href="{% url 'filters' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold">
+                    Filters
+                </a>
+            </li>
+    </ul>
 
 {% endblock %}

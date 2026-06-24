@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 class="bg-sky-400 mb-6 font-bold">Proveedores</h1>
+    <ul>
+        {% for proveedor in proveedores %}
+            <li class="bg-white p-4 rounded shadow border border-gray-700 font-bold ">
+                <a href="{% url 'filter_for_suplier' proveedor.id %}" class="block bg-gray-300 p-3 rounded shadow border border-gray-700 hover:bg-sky-400 hover:text-violet-500 font-bolt">
+                    nombre:{{proveedor.nombre}}
+                </a>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Category
+from ..models import Category, Product
 from ..form import CategoryForm
 
 
@@ -37,6 +37,18 @@ class CRUDCategory:
         return render(request,'delete_category.html', {'category':category})#...
     
 
+    def filter_category(self, request):
+        categoria = Category.objects.all()
+        context = {
+            'categoria': categoria
+
+        }
+        return render(request, 'filter_category.html', context )
+
     def filter_for_category(self, request, category_id):
-        producto = Product.objects.filter(categoria_id=category_id)
-        return render(request, 'filter_for_category.html', {'producto':producto} )
+        categorias = Product.objects.filter(categoria_id=category_id)
+        context = {
+            'categorias':categorias
+
+        }
+        return render(request, 'filter_for_category.html', context)

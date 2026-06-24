@@ -24,6 +24,9 @@ def stockmovement(request):
 def suplier(request):
     return render(request, 'suplier.html')
 
+def filters(request):
+    return render(request, 'filters.html')
+
 
 
 

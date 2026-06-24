@@ -4,7 +4,7 @@
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">
+        <button type="submit" class="bg-white p-2 rounded shadow border border-gray-900 hover:bg-sky-200 hover:text-violet-700 font-bold">
             Guardar
         </button>
     </form>

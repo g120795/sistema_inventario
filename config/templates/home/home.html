@@ -3,7 +3,19 @@
 
 {% block content %}
 <br>
-    <h1>home</h1>
-    <li><a href="{% url 'features' %}">features</a></li>
-    <li><a href="{% url 'contact' %}">contact</a></li>
+    <h1 class="text-3x1 fon bold mb-6 font-bold">Home</h1>
+        <ul class="space-y-3">
+            <div class="text-blue-300 font-bold">
+                <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                    <a href="{% url 'features' %}" class="block bg-white p-4 rounded shadow border border-gray-400 hover:bg-gray-400">
+                        features
+                    </a>
+                </li>
+
+                <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+                    <a href="{% url 'contact' %}" class="block bg-white p-4 rounded shadow border border-gray-400 hover:bg-gray-400">
+                        contact
+                    </a>
+                </li>
+        </ul>
 {% endblock %}

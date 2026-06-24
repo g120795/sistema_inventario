@@ -2,11 +2,22 @@
 {% block title %}category{% endblock %}
 
 {% block content %}
-<h1>Category</h1>
-<ul>
-     <li><a href="{% url 'create_category' %}">crear categoria</li>
-    <br>
-    <li><a href="{% url 'read_category' %}">leer categoria</li>
+<h1 class="text-3x1 mb-6 font-bold">Category</h1>
+<ul class="space-y-4">
+    <div class="text-blue-700">
+        <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+            <a href="{% url 'create_category' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold">
+                crear categoria
+            </a>
+        </li>
+    </div>
+    <div class="text-blue-700">
+        <li class="bg-white p-4 rounded shadow border border-gray-700 hover:text-red-500">
+            <a href="{% url 'read_category' %}" class="block bg-gray-200 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 font-bold">
+                leer categoria
+            </a>
+        </li>
+    </div>
 </ul>
 
 {% endblock %}

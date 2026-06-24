@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <li>
-    {% for product in producto  %}
-    <div class="producto-card">
-        <p><strong>Nombre:</strong> {{ product.nombre }}</p>
-        <p><strong>Precio:</strong> {{ product.precio }}</p>
-        <p><strong>Categoría:</strong> {{ product.categoria }}</p>
-        <br>
-    </div>
-    {% endfor %}
-    </li>
-    
+{% block title %}filtro por categorias{% endblock %}
 
+{% block content %}
+    <ul>
+        <div class="bg-white p-4 rounded shadow border border-gray-700 font-bold">
+            {% for categoria in categorias %}
+                <p class="block bg-gray-500 p-3">Nombre: {{categoria.nombre}}</p>
+                <br>
+            {% endfor %}
+        </div>
+
+    </ul>
 {% endblock %}

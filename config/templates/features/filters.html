@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}filtros{% endblock %}
+
+{% block content %}
+    <ul>
+        <div class="font-bold space-y-3">
+            <li class="bg-gray p-4 rounded shadow border border-gray-700">
+                <a href="{% url 'filter_suplier' %}" class="block bg-gray p-4 rounded shadow border border-gray-700 hover:bg-sky-400 hover:text-violet-500">
+                    filtro por proveedor
+                </a>    
+            </li>
+            
+            <li class="bg-gray p-4 rounded shadow border border-gray-700">
+                <a href="{% url 'filter_category' %}" class="block bg-gray p-4 rounded shadow border border-gray-700 hover:bg-sky-400 hover:text-violet-500">
+                    filtro por categoria
+                </a>
+            </li>
+        </div>
+    </ul>
+
+{% endblock %}

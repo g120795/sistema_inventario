@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 
+{% block title %}filtro por proveedores{%endblock %}
 
 {% block content %}
-    <li>
-        {% for producto in productos %}
-            <p>nombre:{{producto.nombre}}</p>
-            <p>modelo:{{producto.modelo}}</p>
-            <p>stock_actual:{{producto.stock_actual}}</p>
-            {% if producto.stock_actual <= producto.stock_minimo %}
-                stock_minimo: {{producto.stock_minimo}}   "ALERTA DE STOCK MINIMO"
-            {% endif %}
-            <br>
-        {% endfor %}
-    </li>
+<h1 class="bg-sky-300 mb-6 font-bolt">lista de productos por proveedor<h1>
+    <ul>
+        <div class="p-1 font-bold space-y-1">
+            {% for producto in productos %}
+                <li class="bg-sky-300 rounded shadow border border-gray-900">
+                    <p>nombre: {{producto.nombre}}</p>
+                    <p>precio: {{producto.precio}}</p>
+                    <p>stock_actual: {{producto.stock_actual}}</p>
+                    <br>
+                    <br>
+                    {% if producto.stock_actual <= producto.stock_minimo %}
+                        <p>stock minimo{{producto.stock_actual}}ALERTA DE STOCK MINIMO</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </div>
+    </ul>
 
 {% endblock %}

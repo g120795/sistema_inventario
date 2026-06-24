@@ -2,11 +2,20 @@
 {% block title %}product{% endblock %}
 
 {% block content %}
-<h1>Product</h1>
-    <ul>
-        <li><a href="{% url 'create_product' %}">crear producto</li>
+<h1 class="mb-6 font-bold">Product</h1>
+    <ul class="text-blue-600 font-bold">
+        <li class="bg-white p-4 rounded shadow border border-gray-700">
+            <a href="{% url 'create_product' %}" class="block bg-gray p-4 rounded shadow border border-gray-700 hover:bg-sky-200 hover:text-violet-900">
+                crear producto
+            </a>
+        </li>
         <br>    
-        <li><a href="{% url 'read_inventory' %}">lista productos</li>
+        <li class="bg-white p-4 rounded shadow border border-gray-700">
+            <a href="{% url 'read_inventory' %}" class="block bg-white p-4 rounded shadow border border-gray-700 hover:bg-sky-200 hover:text-violet-900">
+                lista productos
+            </a>
+        </li>
+
         <br>    
     </ul>
 {% endblock %}

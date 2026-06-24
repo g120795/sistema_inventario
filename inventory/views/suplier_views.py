@@ -38,8 +38,17 @@ class CRUDSuplier:
             return redirect('read_suplier')
         return render(request,'delete_suplier.html', {'suplier':suplier}) #..
 
-    def filter_for_suplier(self, request, proveedor_id):
-        print(proveedor_id)
-        productos = Product.objects.filter(productsuplier__suplier_id=proveedor_id)
-        print(productos)
-        return render(request, 'filter_for_suplier.html', {'productos':productos})
+    def filter_suplier(self, request):
+        proveedores=Suplier.objects.all()
+        #productos = Product.objects.all(productsuplier__suplier_id=proveedor_id)
+        context = {
+            'proveedores' : proveedores
+        }
+        return render(request, 'filter_suplier.html', context)
+    
+    def filter_for_suplier(self, request, suplier_id):
+        productos = Product.objects.filter(productsuplier__suplier_id=suplier_id)
+        context = { 
+            'productos':productos
+        }
+        return render(request, 'filter_for_suplier.html', context)

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" class="bg-white p-4 rounded shadow border border-gray-900 hover:bg-gray-300 hover:text-blue-400 font-bold">
         {% csrf_token %}
         <div>eliminar:
             {{category.nombre}}
         </div>
-        <button>
+        <button type="submit" class="bg-white p-1 rounded shadow border border-gray-900 hover:bg-red-900 hover:text-red-100">
             Confirmar borrado
         </button>
             
