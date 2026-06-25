@@ -3,12 +3,20 @@
 {% block title %}stockmovement{% endblock %}
 
 {% block content %}
-    <h1>StockMovement</h1>
+    <h1 class="bg-sky-300 mb-6 p-2 font-bold">StockMovement</h1>
         <ul>
             <br>
-            <li><a href="{% url 'create_stock_movement' %}">compra o venta</li>
-            <br>
-            <li><a href="{% url 'read_stock_movement' %}">leer historial de compra venta</li>
+            <li class="bg-gray-200 mb-2 p-2 rounded shadow border border-gray-900 font-bold">
+                <a href="{% url 'create_stock_movement' %}" class="block bg-gray-400 p-1 rounded shadow border border-gray-900 hover:bg-gray-500 hover:text-red-700">
+                    compra o venta
+                </a>
+            </li>
+            
+            <li class="bg-gray-200 p-2 rounded shadow border border-gray-900 font-bold">
+                <a href="{% url 'read_stock_movement' %}" class="block bg-gray-400 p-1 rounded shadow border border-gray-900 hover:bg-gray-500 hover:text-red-700">
+                    leer historial de compra venta
+                </a>
+            </li>
             <br>
         </ul>
 

@@ -3,11 +3,19 @@
 {% block title %}suplier{% endblock %}
 
 {% block content %}
-    <h1>Suplier</h1>
+    <h1 class="bg-sky-300 mb-6 p-2 font-bold">Suplier</h1>
         <ul>
-            <li><a href="{% url 'create_suplier' %}">crear proveedor</li>
-            <br>
-            <li><a href="{% url 'read_suplier' %}">lista proveedores</li>
+            <li class="bg-gray-200 mb-2 p-2 rounded shadow border border-gray-900 font-bold">
+                <a href="{% url 'create_suplier' %}" class="block bg-gray-400 p-1 rounded shadow border border-gray-900 hover:bg-gray-500 hover:text-red-700">
+                    crear proveedor
+                </a>
+            </li>
+            
+            <li class="bg-gray-200 mb-2 p-2 rounded shadow border border-gray-900 font-bold">
+                <a href="{% url 'read_suplier' %}" class="block bg-gray-400 p-1 rounded shadow border border-gray-900 hover:bg-gray-500 hover:text-red-700">
+                    lista proveedores
+                </a>
+            </li>
             <br>
         </ul>
 

@@ -3,11 +3,8 @@
 {% block content %}
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
-        <button>
-            <div>se eliminara el producto: 
-                <p>{{producto.nombre}}</p>
-            </div>
+        <p> se eliminara: {{producto.nombre}}</p>
+        <button type="submit" class="bg-gray-100 ml-5 mt-3 p-2 rounded shadow border border-gray-700 hover:bg-gray-500 hover:text-violet-300"> 
             eliminar
         </button>
     </form>

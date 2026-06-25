@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1 class="mb-6 font-bolt p-6">Lista de Proveedores</h1>
     <ul>
         {% for proveedor in suplier %}
-            <div>
-                <li>
-                    nombre: {{proveedor.nombre}}<br>
-                    documento: {{proveedor.documento}}<br>
-                    nombre_contacto: {{proveedor.nombre_contacto}}<br>
-                    telefono: {{proveedor.telefono}}<br>
-                    correo: {{proveedor.correo}}<br>
-                    pagina_pedidos: {{proveedor.pagina_pedidos}}<br>
+            <div class="bg-gray-200 mb-1 rounded shadow border border-gray-900 text-blue-600 ml-2">
+                <li class="block bg-gray-200 ml-1 mt-1 rounded shadow border border-gray-900">
+                    <p class="ml-2">nombre: {{producto.nombre}}
+                    <p class="ml-2">nombre: {{proveedor.nombre}}</p>
+                    <p class="ml-2">documento: {{proveedor.documento}}</p>
+                    <p class="ml-2">nombre_contacto: {{proveedor.nombre_contacto}}</p>
+                    <p class="ml-2">telefono: {{proveedor.telefono}}</p>
+                    <p class="ml-2">correo: {{proveedor.correo}}</p>
+                    <p class="ml-2">pagina_pedidos: {{proveedor.pagina_pedidos}}</p>
                 </li>
+                <a href="{% url 'update_suplier' proveedor.id %}">
+                    <button type="submit" class="bg-gray-200 mt-3 ml-2 p-1 rounded shadow border border-gray-900 hover:bg-gray-300 hover:text-violet-600 font-bolt">
+                        Editar proveedor
+                     </button>
+                </a>
+
+                <a href="{% url 'delete_suplier' proveedor.id %}">
+                    <button type="submit" class="bg-gray-200 mt-1 ml-2 p-1 rounded shadow border border-gray-900 hover:bg-gray-300 hover:text-violet-600 font-bolt">
+                        Eliminar proveedor
+                    </button>
+                </a>
             </div>
-            <a href="{% url 'update_suplier' proveedor.id %}">
-                Editar proveedor
-            </a>
-
-            <a href="{% url 'delete_suplier' proveedor.id %}">
-                Eliminar proveedor
-            </a>
-            <br>
-            <br>
-
         {% endfor %}
     </ul>
 {% endblock %}

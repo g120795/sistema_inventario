@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1 class="mb-6 font-bold">Movimiento de Stock</h1>
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Enviar</button>
+         <ul>
+        <li class="bg-sky-300 p-4 rounded shadow border border-gray-700 font-bold">
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Cantidad: {{form.cantidad}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Tipo: {{form.tipo}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Fecha: {{form.fecha}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Proveedor: {{form.proveedor}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Producto: {{form.producto}}</p>
+            <button type="submit" class="bg-gray-100 p-2 rounded shadow border border-gray-700 hover:bg-gray-500 hover:text-violet-300">Enviar</button>
+        </li>
+    </ul>
+        
     </form>
 
 

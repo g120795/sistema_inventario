@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 
 {%block content%}
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>guardar</button>
-    </form>
+   <h1 class="mb-6 font-bold">Actualizar Producto</h1>
+    <form method="POST" >
+    {% csrf_token %}
+    <ul>
+        <li class="bg-sky-300 p-4 rounded shadow border border-gray-700 font-bold">
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Nombre: {{form.nombre}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Modelo: {{form.modelo}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Serie: {{form.serie}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Color: {{form.color}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Fecha_de_vencimiento: {{form.fecha_vencimiento}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Fecha_registro: {{form.fecha_registro}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">Categoria: {{form.categoria}}</p>
+            <p class="bg-gray-100 p-1 rounded shadow border border-gray-700 hover:bg-gray-500 mb-2">proveedor(es): {{form.proveedores}}</p>
+            <button type="submit" class="bg-gray-100 p-4 rounded shadow border border-gray-700 hover:bg-gray-500 hover:text-violet-300">Guardar</button>
+        </li>
+    </ul>
+</form>
 {% endblock %}
 
 

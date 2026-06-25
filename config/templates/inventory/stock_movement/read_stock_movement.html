@@ -2,18 +2,15 @@
 {% block content %}
     <ul>
         {% for stock in stock_movement %}
-                <div>
-                
+                <div class="bg-gray-100 mb-1 rounded shadow border border-gray-900 text-blue-600 ml-2">
                     <li>
-                        cantidad: {{stock.cantidad}}<br>
-                        tipo: {{stock.tipo}}<br>
-                        fecha: {{stock.fecha}}<br>
-                        proveedor: {{stock.proveedor}}<br>
-                        producto: {{stock.producto}}<br>
+                        <p class="ml-2">cantidad: {{stock.cantidad}}</p>
+                        <p class="ml-2">tipo: {{stock.tipo}}</p>
+                        <p class="ml-2">fecha: {{stock.fecha}}</p>
+                        <p class="ml-2">proveedor: {{stock.proveedor}}</p>
+                        <p class="ml-2">producto: {{stock.producto}}</p>
                     </li>
-            
                </div>
-            <br>
         {% endfor %}
     </ul>
 {% endblock %}

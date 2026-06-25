@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1 class="mb-6 font-bolt p-6">Lista de Productos</h1>
     <ul>
         {% for producto in product %}
-            <div>
-                <li>
-                    nombre: {{producto.nombre}}<br>
-                    modelo: {{producto.modelo}}<br>  
-                    precio: S/{{producto.precio}}<br>   
+            <div class="bg-gray-100 mb-1 rounded shadow border border-gray-900 text-blue-600 ml-2">
+                <li class="block bg-gray-200 rounded shadow border border-gray-900">
+                    <p class="ml-2">nombre: {{producto.nombre}}</p>
+                    <p class="ml-2">modelo: {{producto.modelo}}</p>
+                    <p class="ml-2">precio: S/{{producto.precio}}</p>
                     {% if producto.stock_minimo >= producto.stock_actual %}
-                    alerta de stock minimo: {{producto.stock_actual}}<br>
+                        <p class="ml-2">stock_actual: {{producto.stock_actual}} ALERTA DE STOCK MINIMO</p>
                     {% endif %}
                     <a href="{% url 'update_product' producto.id %}">
-                        Editar
+                        <button type="submit" class="bg-gray-200 mt-3 ml-2 p-1 rounded shadow border border-gray-900 hover:bg-gray-300 hover:text-violet-600 font-bolt">
+                            Editar
+                        </button>
                     </a>
 
                     <a href="{% url 'delete_product' producto.id %}">
-                        Eliminar
+                        <button type="submit" class="bg-gray-200 mt-3 ml-2 p-1 rounded shadow border border-gray-900 hover:bg-gray-300 hover:text-violet-600 font-bolt">
+                            Eliminar
+                         </button>
                     </a>
                     <br>
                     <br>
