@@ -18,7 +18,6 @@ class Product(models.Model):
     def __str__(self):
         product = ( 
             f'nombre: {self.nombre}'
-            f'categoria: {self.categoria}'
            
         )
         return product #...
